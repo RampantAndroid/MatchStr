@@ -2,7 +2,7 @@
 
 using namespace std;
 
-bool MatchSrt(string haystack, int& iHaystack, string needle, int& iNeedle)
+bool MatchStr(string haystack, int& iHaystack, string needle, int& iNeedle)
 {
     for (int i = iHaystack; i < haystack.length(); i++)
     {
@@ -54,13 +54,13 @@ bool MatchStr(string haystack, string needle)
         return false;
     }
 
-    bool retval = MatchSrt(haystack, iHaystack, needle, iNeedle);
+    bool retval = MatchStr(haystack, iHaystack, needle, iNeedle);
 
     // If false and the needle counter is nonzero, then a wildcard was hit.
     // Call a second time with offsets and return result.
     if (retval == false && iNeedle > 0)
     {
-        retval = MatchSrt(haystack, iHaystack, needle, iNeedle);
+        retval = MatchStr(haystack, iHaystack, needle, iNeedle);
     }
 
     return retval;
